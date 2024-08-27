@@ -1,4 +1,10 @@
-import { createContext, useEffect, useContext, useReducer, useCallback } from "react";
+import {
+  createContext,
+  useEffect,
+  useContext,
+  useReducer,
+  useCallback,
+} from "react";
 
 const BASE_URL = "http://localhost:9000";
 
@@ -55,7 +61,10 @@ function reducer(state, action) {
 }
 
 function CitiesProvider({ children }) {
-  const [{ cities, isLoading, currentCity, error }, dispatch] = useReducer(reducer, initialState);
+  const [{ cities, isLoading, currentCity, error }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
 
   useEffect(function () {
     async function fetchCities() {
@@ -153,7 +162,8 @@ function CitiesProvider({ children }) {
 
 function useCities() {
   const context = useContext(CitiesContext);
-  if (context === undefined) throw new Error("CitiesContext was used outside the CitiesProvider");
+  if (context === undefined)
+    throw new Error("CitiesContext was used outside the CitiesProvider");
   return context;
 }
 
