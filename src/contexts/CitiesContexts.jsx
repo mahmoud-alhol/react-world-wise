@@ -84,8 +84,7 @@ function CitiesProvider({ children }) {
     fetchCities();
   }, []);
 
-  const getCity = useCallback(
-    async function getCity(id) {
+  const getCity = useCallback( async function getCity(id) {
       if (Number(id) === currentCity.id) return;
 
       dispatch({ type: "loading" });
